@@ -4,9 +4,10 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.container {
+body {
   background-color: rgb(237, 237, 237);
+}
+.container {
   height: 100vh;
 }
 .container .wrap {
@@ -22,7 +23,7 @@
   object-position: center;
   background-size: cover;
   padding: 0 20px;
-  height: 100vh;
+  height: 100%;
   width: 250px;
 }
 .bar .logo {
@@ -46,11 +47,17 @@
 
 /* ====================Top===============- */
 .content .top {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   padding: 20px;
   border: 1px solid gray;
   background-color: #fffff4;
+  border-radius: 10px;
+}
+.content .top .search-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 0 20px;
   border-radius: 10px;
 }
 .content .top .search {
@@ -68,6 +75,19 @@
   font-size: 25px;
   border: none;
   padding: 0 5px;
+}
+.content .top .accountDisplay {
+  width: 100%;
+  text-align: right;
+}
+.content .top .accountDisplay span {
+  padding: 0 10px;
+}
+.content .top .accountDisplay button {
+  padding: 5px;
+  background-color: rgba(244, 121, 121, 0.8);
+  border: none;
+  border-radius: 3px;
 }
 /* ==================Bottom==============- */
 .content .bottom {
@@ -229,54 +249,17 @@ td {
   padding: 5px;
 }
 /* ===================Page control================- */
-.content .page-control {
+.content .page-control .page {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
   padding: 20px;
 }
 .content .page-control .page > button {
   width: 30px;
-}
-/* ================Pagination===================- */
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  list-style: none;
-}
-.pagination .page {
-  display: flex;
-  align-items: center;
-  margin: 20px 0 50px 0;
-}
-.pagination button {
-  background-color: transparent;
+  text-align: center;
+  padding: 6px;
   border: none;
-  padding: 10px 20px;
-  min-width: 40px;
-  height: 40px;
+  border-radius: 3px;
 }
-/* page .pagination-item--active .pagination-item__link {
-  color: white;
-  background-color: #3c1a1a;
-}
-.pagination-item {
-  margin: 20px 0 100px 0;
-}
-.pagination-item__icon {
-}
-.pagination-item__link {
-  text-decoration: none;
-  font-size: 1.6rem;
-  color: #3c1a1a;
-  min-width: 40px;
-  height: 40px;
-  padding: 10px 20px;
-  border-radius: 10px;
-}
-.pagination-item__link:hover {
-  background-color: #3c1a1a78;
-} */
-/* ===================================- */

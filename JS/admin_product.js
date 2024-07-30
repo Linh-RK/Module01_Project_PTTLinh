@@ -6,13 +6,10 @@ let cancelInForm = document.querySelector("#cancel-btn");
 let sortCate = document.getElementById("select-cate");
 const updateProductBtn = document.getElementById("update-product-btn");
 const tbodyProduct = document.querySelector("#product-list-tbody");
-// const currentPage = JSON.parse(localStorage.getItem("current-page")) || 1;
 const formTitle = document.querySelector(".form-title");
-// const updateBtn = document.querySelector("update-btn");
 const inputName = document.getElementById("name-product-add");
 const inputImage = document.getElementById("img-product-add");
 const imageProduct = document.getElementById("image-product");
-// const inputCategory = document.getElementById("categories-product-add");
 const inputPrice = document.getElementById("price-product-add");
 const inputStock = document.getElementById("stock-product-add");
 const inputDescription = document.getElementById("description-product-add");
@@ -20,30 +17,29 @@ const inputSearch = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const selectCategory = document.querySelector("#select-categories");
 const selectType = document.querySelector("#select-type");
-// console.log(selectCategory);
-//
 
 // ---------------------------------------------------------------------------------
 const pageControl = document.querySelector(".page");
 
 let totalPage = 1;
 let pageSize = 5;
-let currentPage = 1;
+let currentPageProduct = 1;
+localStorage.setItem("currentPageProduct", JSON.stringify(currentPageProduct));
 // -------------------------------------------
 function render() {
   let dbProductList =
     JSON.parse(window.localStorage.getItem("dbProductList")) || [];
-  // -----------------
+
+  // -SEARCH--------------
   dbProductList = dbProductList.filter((e) =>
     e.name.toLowerCase().includes(inputSearch.value.toLowerCase())
   );
-  // -----------------
+  // -SORT CATEGORIES---------------
   if (sortCate.value) {
     dbProductList = dbProductList.filter((e) => e.categories == sortCate.value);
   }
-  console.log(dbProductList);
 
-  // -----------------
+  // PAGINATION-----------------
   totalPage = Math.ceil(dbProductList.length / pageSize);
   // -----------------
   let stringHTMLpage = "";
@@ -58,9 +54,9 @@ function render() {
     `;
   }
   pageControl.innerHTML = stringHTMLpage;
-  currentPage = JSON.parse(localStorage.getItem("currentPageProduct"));
-  let skip = (currentPage - 1) * pageSize;
-  if (pageSize > totalPage) {
+  currentPageProduct = JSON.parse(localStorage.getItem("currentPageProduct"));
+  let skip = (currentPageProduct - 1) * pageSize;
+  if (pageSize > dbProductList.length) {
     dbProductList = dbProductList;
   } else {
     dbProductList = dbProductList.slice(skip, skip + pageSize);
@@ -68,10 +64,11 @@ function render() {
   }
   // let stringProductHTML = "";
   let stringHTML = "";
+  let stt = 1;
   for (let i = 0; i < dbProductList.length; i++) {
     stringHTML += `
       <tr>
-        <td>${dbProductList[i].id}</td>
+        <td>${(currentPageProduct - 1) * pageSize + stt++}</td>
         <td class="td-product-name">${dbProductList[i].name}</td>
         <td class="pic">
           <img src="${dbProductList[i].img}" alt="" />
@@ -82,11 +79,15 @@ function render() {
         <td>${dbProductList[i].stock}</td>
         <td>${dbProductList[i].status}</td>
         <td class="btn-action">
-          <button id="update-product-btn" onclick="updateProduct(${dbProductList[i].id})">Update</button>
-          <button id="delete-product-btn" onclick="deleteProduct(${dbProductList[i].id})">Delete</button>
+          <button id="update-product-btn" onclick="updateProduct(${
+            dbProductList[i].id
+          })">Update</button>
+          <button id="delete-product-btn" onclick="deleteProduct(${
+            dbProductList[i].id
+          })">Delete</button>
         </td>
       </tr>
-      <tr >
+      <tr>
       <td colspan="8"><hr></td>
       </tr>
     `;
@@ -96,9 +97,13 @@ function render() {
 render();
 // ---------------------------------------
 function renderProductPage(i) {
-  currentPage = i;
-  localStorage.setItem("currentPageProduct", JSON.stringify(currentPage));
+  currentPageProduct = i;
+  localStorage.setItem(
+    "currentPageProduct",
+    JSON.stringify(currentPageProduct)
+  );
   render();
+  activePage();
 }
 // search===============
 function search() {
@@ -108,7 +113,7 @@ function search() {
 cancelInForm.addEventListener("click", function () {
   form.style.display = "none";
 });
-// 5_DELETE===========================
+// 5_DELETE==============
 function deleteProduct(id) {
   const dbProductList =
     JSON.parse(window.localStorage.getItem("dbProductList")) || [];
@@ -117,7 +122,7 @@ function deleteProduct(id) {
   window.localStorage.setItem("dbProductList", JSON.stringify(dbProductList));
   render();
 }
-// // 6. UPDATE=============================
+// // 6. UPDATE============
 
 // CLICK ADD BUTTON IN TABLE DISPLAY FORM
 function updateProduct(id) {
@@ -175,8 +180,10 @@ function updateProductForm() {
   formTitle.innerHTML = "CREATE NEW PRODUCT";
   addInForm.style.display = "block";
   updateProductBtn.style.display = "none";
-  const currentPage = JSON.parse(window.localStorage.getItem("currentPage"));
-  renderProductPage(currentPage);
+  const currentPageProduct = JSON.parse(
+    window.localStorage.getItem("currentPageProduct")
+  );
+  renderProductPage(currentPageProduct);
 }
 // ADD NEW-------------------------------------------------
 let url;
@@ -266,7 +273,18 @@ function selectTypeDisplay() {
   }
   selectType.innerHTML = stringHTML;
 }
-//render Category ---------------------
-// function renderCategory() {
-//   let categoriesList = dbProductList;
-// }
+// PAGE ACTIVE-----------------------
+function activePage() {
+  const currentPageProduct = JSON.parse(
+    localStorage.getItem("currentPageProduct")
+  );
+  let page = document.getElementsByClassName("pagination");
+  console.log(page);
+  page[currentPageProduct - 1].style.backgroundColor =
+    " rgba(116, 166, 41, 0.3)";
+  page[currentPageProduct - 1].style.border =
+    "1px solid rgba(116, 166, 41, 0.3)";
+  page[currentPageProduct - 1].style.borderRadius = "3px";
+  page[currentPageProduct - 1].style.padding = "6px";
+}
+activePage();

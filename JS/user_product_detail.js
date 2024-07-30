@@ -1,14 +1,5 @@
-const subtractBtn = document.querySelector(".subtract-btn");
-const addBtn = document.querySelector(".add-btn");
-const inputQty = document.querySelector("#input-qty");
-const product = document.querySelector(".product");
-const recommend = document.querySelector(".recommend-products-list");
-
-// ----------------
-const addCart = document.querySelector(".add-cart-btn");
-const buyNow = document.querySelector(".buy-now");
-// ---------------
-
+let product = document.querySelector(".product");
+let subtractBtn, addBtn, inputQty, recommend, addCart, buyNow;
 function render() {
   let detailProduct = JSON.parse(localStorage.getItem("detailProduct"));
   product.innerHTML += `
@@ -71,6 +62,16 @@ function render() {
               </div>
             </div>
   `;
+
+  subtractBtn = document.querySelector(".subtract-btn");
+  addBtn = document.querySelector(".add-btn");
+  inputQty = document.querySelector("#input-qty");
+  recommend = document.querySelector(".recommend-products-list");
+
+  // ----------------
+  addCart = document.querySelector(".add-cart-btn");
+  buyNow = document.querySelector(".buy-now");
+  // ---------------
 }
 render();
 // ---------------
@@ -102,17 +103,19 @@ function renderOther4(id) {
 }
 renderOther4();
 // ----------------------------
-// function add() {
-//   inputQty.value = +inputQty.value + 1;
-// }
-// //----------------
-// function subtract() {
-//   if (inputQty.value > 1) {
-//     inputQty.value -= 1;
-//   } else {
-//     return;
-//   }
-// }
+function add() {
+  console.log(inputQty);
+  inputQty.value = +inputQty.value + 1;
+}
+//----------------
+function subtract() {
+  console.log(inputQty);
+  if (inputQty.value > 1) {
+    inputQty.value -= 1;
+  } else {
+    return;
+  }
+}
 //----------------
 // function addToCart() {
 //     inputQty.value

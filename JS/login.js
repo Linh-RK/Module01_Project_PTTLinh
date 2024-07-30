@@ -231,14 +231,15 @@ function loginAcc() {
             "userLogin",
             JSON.stringify(listUser[findIndexEmail])
           );
-          window.location.href = "../home/home.html";
+          window.location.href = "http://127.0.0.1:5500/HTML/user_home.html";
         } else {
           localStorage.setItem(
             "adminLogin",
             JSON.stringify(listUser[findIndexEmail])
           );
           // localStorage.setItem("loginAdmin", 1);
-          window.location.href = "../admin/User/user.html";
+          window.location.href =
+            "http://127.0.0.1:5500/HTML/admin_product.html";
         }
       }
     }

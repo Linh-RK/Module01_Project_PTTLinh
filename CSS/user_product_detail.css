@@ -402,3 +402,52 @@ footer .bottom .ms {
   right: 30px;
   background-color: #751a47;
 }
+@media only screen and (max-width: 992px) {
+  body {
+    .page-container .main-content .product .wrap .type .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 20px;
+      border-radius: 8px;
+      padding: 0 auto;
+    }
+    header .top .block3 > .tel,
+    header .top .block3 > .store,
+    header .top .block3 > .user {
+      display: none;
+    }
+    header .bottom ul .discount a {
+      display: none;
+    }
+    footer .content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    .page-container .main-content .product .wrap .type .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 20px;
+      border-radius: 8px;
+      padding: 0 auto;
+    }
+    header .bottom ul {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    .page-container .main-content .product .wrap .type .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px 20px;
+      border-radius: 8px;
+      padding: 0 auto;
+    }
+  }
+}

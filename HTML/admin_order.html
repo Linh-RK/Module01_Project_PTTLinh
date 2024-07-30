@@ -43,16 +43,16 @@
           <!-- ===============Content================= -->
           <div class="content">
             <div class="top">
+              <div class="accountDisplay">
+                <div class="logged">
+                  <span>Welcome back</span>
+                  <i class="fa-solid fa-user"></i>
+                  <span class="userDisplay"></span>
+                  <button onclick="logout()" >Log Out</button>
+                </div>
+                <button onclick="login()" class="un-log" style="display: none;">Log In</button>
+              </div>
               <h2>QUẢN LÝ ORDER</h2>
-              <div class="add-cate">
-                <div class="input">
-                  <input id="inputCate" type="text" />
-                </div>
-                <div class="btn">
-                  <button id="add">Đồng ý</button>
-                  <button id="cancel">Huỷ</button>
-                </div>
-                </div>
             </div>
             <!-- ====== class="confirm"=========Content================= -->
             <div class="bottom">
@@ -61,50 +61,61 @@
                 <div class="control-button">
                   <div>Sắp sếp</div>
                   <div>
-                    <select name="" id="">
-                      <option value="">Tên tăng dần</option>
+                    <select name="sort" id="sort">
+                      <option value="Newest">Newest</option>
+                      <option value="Oldest">Oldest</option>
                     </select>
-                    <input type="text">
+                    <input type="text" class="input-search">
                   </div>
                   <div>
-                    <button>Tìm</button>
+                    <button class="search-btn" onclick="render()">Tìm</button>
                   </div>
                 </div>
               </div>
               <hr />
               <!-- ===============Content================= -->
               <div class="product-table">
-                <table>
+                <table class="table">
                   <thead>
-                    <th>STT</th>
-                    <th>Tên</th>
-                    <th>Hành động</th>
+                    <th>Num</th>
+                    <th>Order code</th>
+                    <th>Username</th>
+                    <th>Date</th>
+                    <th>Payment</th>
+                    <th>Total bill</th>
+                    <th>Status</th>
+                    <th>Control</th>
+                    <th>Detail</th>
                   </thead>
                   <!-- ========== -->
-                  <tbody id = "lineCate">
-                    <!-- <tr class="add-area">
-                      <td>1</td>
-                      <td id="nameCate">Cart</td>
-                      <td>
-                        <button>Sửa</button>
-                        <button>Xoá</button>
-                      </td>
-                    </tr> -->
+                  <tbody id = "line-cate">
+                    
                   </tbody>
                 </table>
-                <!-- ===============Content================= -->
+                <!-- ----------- -->
+                 <div>
+                 <table  
+                 style="display: block;">
+                  <thead>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quality</th>
+                    <th>Total</th>
+                  </thead>
+                  <tbody class="detail-order">
+
+                  </tbody>
+                  <tfoot class="total-money">
+
+                  </tfoot>
+                 </table>
+                 </div>
+                <!-- ===============Content============== -->
 
                 </section>
                 <section class="page-control">
-                  <button class="pre">Previous</button>
                   <div class="page">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
-                    
                   </div>
-                  <button class="next">Next</button>
                 </section>
               </div>
             </div>
@@ -112,5 +123,8 @@
         </div>
       </div>
       <script src="../JS/admin_order.js"></script>
+      <script src="../JS/main_adm.js"></script>
+
+      <!-- <script src="../JS/main.js"></script> -->
   </body>
 </html>

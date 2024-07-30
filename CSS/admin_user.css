@@ -4,8 +4,10 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-.container {
+body {
   background-color: rgb(237, 237, 237);
+}
+.container {
   height: 100vh;
 }
 .container .wrap {
@@ -21,7 +23,7 @@
   object-position: center;
   background-size: cover;
   padding: 0 20px;
-  height: 100vh;
+  height: 100%;
   width: 250px;
 }
 .bar .logo {
@@ -78,6 +80,10 @@
   font-size: 25px;
   border: none;
   padding: 0 5px;
+}
+.content .top .accountDisplay {
+  width: 100%;
+  text-align: right;
 }
 .content .top .accountDisplay span {
   padding: 0 10px;
@@ -163,12 +169,13 @@ tr {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 30px;
+  gap: 10px;
+  padding: 20px;
 }
 .content .page-control .page > button {
-  /* width: 30px; */
-  padding: 10px 15px;
+  width: 30px;
+  text-align: center;
+  padding: 6px;
 }
 /* ===================================- */
 /* ===================================- */

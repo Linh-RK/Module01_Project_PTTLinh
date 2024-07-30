@@ -45,99 +45,68 @@ h2 {
 ul {
   list-style: none;
 }
-/* li{
-      text-decoration: ;
-  } */
-/* ===========================HEADER=========================== */
+/* ===========================HEADER========================= */
 header {
-  padding: 10px 30px;
-  background-color: #5c3335;
+  background-color: #421a1f;
+  color: #ffffff;
 }
 
-/* =======================HEADER TOP=========================== */
-header .top {
+header .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
-header .top .block1 {
-  align-items: center;
+header .site-header .logo img {
+  width: 80px;
+  height: 80px;
 }
-/*  */
-header .top .block2 {
-  line-height: 2rem;
-  background-color: #3c1a1a;
-  align-items: center;
-  width: 25%;
-  border-radius: 5px;
+header .right {
+  width: 100%;
 }
-header .top .block2 input {
-  line-height: 2rem;
-  width: 86%;
-}
-header .top .block2 i {
-  padding: 10px;
-  color: white;
-}
-/*  */
-header .top .block3 {
+header ul,
+li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
-}
-header .top .block3 .info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-header .top .block3 .info i {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  padding: 12px;
-  margin: 15px;
-}
-header .top .block3 .info div {
-  color: #ffffff;
-  font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
-}
-/* =======================HEADER BOT=========================== */
-header .bottom ul {
   list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 15px;
 }
-header .bottom ul a {
-  color: white;
-}
-header .bottom header .bottom .display {
+
+header .right .display {
   position: relative;
 }
-header .bottom ul li .dropdown {
+header ul i {
+  font-size: 20px;
+  width: 30px;
+  margin: 0 10px;
+}
+header ul .cart-icon a {
+  display: flex;
+  gap: 10px;
+}
+header .right .display .dropdown {
   display: none;
-  background-color: rgba(84, 82, 11);
+  background-color: #421a1f;
   line-height: 1.5rem;
   padding: 10px;
   position: absolute;
   margin-top: 10px;
   width: 250px;
 }
-header .bottom .display:hover .dropdown {
+header .right .display:hover .dropdown {
   display: block;
   z-index: 1;
+  top: 20px;
+  /* left: 40px; */
 }
-header .bottom ul li a {
+header .right ul li a {
   color: #ffffff;
   text-decoration: none;
   font-size: 14px;
   padding: 10px;
 }
-h1 {
-  padding: 30px 150px;
+.wrap .cart_blank {
+  padding: 100px 30%;
 }
 /* =======================CONTENT=========================== */
 .container {
@@ -184,6 +153,14 @@ table thead {
 table tfoot {
   font-size: 30px;
   line-height: 4rem;
+}
+table .product td {
+  text-align: center;
+  align-items: center;
+}
+table .product input {
+  width: 55px;
+  line-height: 35px;
 }
 .container .wrap .check-out {
   text-align: center;
@@ -281,4 +258,53 @@ footer .bottom .ms {
   bottom: 30px;
   right: 30px;
   background-color: #751a47;
+}
+@media only screen and (max-width: 992px) {
+  body {
+    .page-container .main-content .product .wrap .type .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 20px;
+      border-radius: 8px;
+      padding: 0 auto;
+    }
+    header .top .block3 > .tel,
+    header .top .block3 > .store,
+    header .top .block3 > .user {
+      display: none;
+    }
+    header .bottom ul .discount a {
+      display: none;
+    }
+    footer .content {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    .page-container .main-content .product .wrap .type .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 20px;
+      border-radius: 8px;
+      padding: 0 auto;
+    }
+    header .bottom ul {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    .page-container .main-content .product .wrap .type .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px 20px;
+      border-radius: 8px;
+      padding: 0 auto;
+    }
+  }
 }

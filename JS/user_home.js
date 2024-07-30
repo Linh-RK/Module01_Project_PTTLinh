@@ -2,6 +2,7 @@ let currentSlide = 0;
 const listSlides = document.getElementsByClassName("mySlides");
 const nameUser = document.querySelector(".name-user");
 const userLogin = JSON.parse(localStorage.getItem("userLogin"));
+// const totalCart = document.querySelector(".total-cart");
 // DISPLAY USER NAME ON TOP---------------
 nameUser.innerHTML = `${userLogin.userName}`;
 // SLIDE SHOW------------------------------
@@ -52,9 +53,14 @@ function render1(type) {
                   <div class="price">${dbProductList[j].price + ".000đ"}</div>
                   <div class="cart">
                   <button
-                  onclick="addToCart(${
-                    dbProductList[j].id
-                  })"><i class="fa-solid fa-cart-plus"></i></button>
+                    id="${dbProductList[j].id}"
+                    onclick="
+                    window.event.cancelBubble = true;
+                      addToCart(${dbProductList[j].id})
+                    "
+                  >
+                    <i class="fa-solid fa-cart-plus"></i>
+                  </button>
                 </div>
               </div>
                 `;
@@ -72,21 +78,22 @@ function render2(type) {
              <div class="product1" onclick = "detail(${
                dbProductList[j].id
              })">             
-              <div class="product-img">
-                  <a><img src="${dbProductList[j].img}" alt="" /></a>
-              </div>
-              <div class="product-title">
-                  <a >
-                      <h5>${dbProductList[j].name}</h5>
-                  </a>
-              </div>
-              <div class="product-price">
-                  <div class="price">${dbProductList[j].price + ".000đ"}</div>
-                  <div class="cart">
-                  <button
-                  onclick="addToCart(${
-                    dbProductList[j].id
-                  })"><i class="fa-solid fa-cart-plus"></i></button>
+                <div class="product-img">
+                    <a><img src="${dbProductList[j].img}" alt="" /></a>
+                </div>
+                <div class="product-title">
+                    <a >
+                        <h5>${dbProductList[j].name}</h5>
+                    </a>
+                </div>
+                <div class="product-price">
+                    <div class="price">${dbProductList[j].price + ".000đ"}</div>
+                    <div class="cart">
+                    <button
+                    onclick="window.event.cancelBubble = true;
+                    addToCart(${
+                      dbProductList[j].id
+                    })"><i class="fa-solid fa-cart-plus"></i></button>
                 </div>
               </div>
                 `;
@@ -117,7 +124,8 @@ function render3(type) {
                   <div class="price">${dbProductList[j].price + ".000đ"}</div>
                   <div class="cart">
                   <button class="add-to-cart-btn"><i class="fa-solid fa-cart-plus"
-                  onclick="addToCart(${dbProductList[j].id})"></i></button>
+                  onclick="window.event.cancelBubble = true;
+                  addToCart(${dbProductList[j].id})"></i></button>
                 </div>
               </div>
                 `;
@@ -153,8 +161,11 @@ function detail(id) {
   // window.location.href = "http://127.0.0.1:5500/HTML/user_product_detail.html";
   location.replace("http://127.0.0.1:5500/HTML/user_product_detail.html");
 }
-// ------------------------------------
+// // ------------------------------------
 function addToCart(id) {
+  // console.log("sadfdasfdsafadfdasf", );
+  // el.stopPropagation();
+  // let id = e.target.id;
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
   let cartProductList =
     JSON.parse(localStorage.getItem("cartProductList")) || [];

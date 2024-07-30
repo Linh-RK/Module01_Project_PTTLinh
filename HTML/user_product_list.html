@@ -25,6 +25,8 @@
     />
     <link rel="stylesheet" href="..//CSS/user_product_list.css" />
     <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/top_head.css">
+
     <title>Anh Hoà</title>
     <link rel="icon" type="image/x-icon" href="../ASSET/img/logo/logo.png" />
 
@@ -33,94 +35,83 @@
   <body>
     <header>
       <div class="site-header">
-        <div class="inner">
-          <div class="top">
-            <a href="./user_home.html" class="block1 logo">
-              <img src="../ASSET/img/logo/logo.png" alt="" />
-            </a>
-            <!-- ====================================================== -->
-            <!-- <div class="block2 search">
-              <input
-                type="text"
-                name="search-input"
-                id="search-input"
-                placeholder="Tìm kiếm"
-              />
-              <span><i class="fa-solid fa-magnifying-glass"></i> </span>
-            </div> -->
-            <!-- ====================================================== -->
-            
-          </div>
-          <!-- ====================================================== -->
-          <div class="bottom">
-            <ul>
-              <li>
-                <a href="./user_home.html">TRANG CHỦ</a>
-              </li>
-              <li class="display">
+        <div class="left">
+          <div class="block1 logo">
+            <a href="user_home.html"><img src="../ASSET/img/logo/logo.png" alt="" /></a>
+        </div>
+        </div>
+            <!-- ---------------- -->
+        <div class="right">
+          <ul>
+            <li class="display">
+              <a href="../HTML/user_product_detail.html">
                 <div>
-                  <a href="./user_product_list.html">BÁNH SINH NHẬT</a>
-                  <i class="fa-solid fa-chevron-down"></i>
+                  <a href="./user_product_list.html" onclick="type1()">BÁNH SINH NHẬT</a>
                 </div>
+                
                 <div class="dropdown">
+                  <!-- <div class="hide"></div> -->
                   <div class="line line1">
-                    <a href="">Bánh Sinh Nhật 2024</a>
+                    <a href = "./user_product_list.html" onclick="cate()">Bánh Sinh Nhật 2024</a>
                   </div>
                   <div class="line line2">
-                    <a href="">Bánh Valentine - Trái Tim</a>
+                    <a href = "./user_product_list.html" onclick="cate()">Bánh Valentine - Trái Tim</a>
                   </div>
                   <div class="line line3">
-                    <a href="">Bánh Sinh Nhật Bé Trai</a>
+                    <a href = "./user_product_list.html" onclick="cate()">Bánh Sinh Nhật Bé Trai</a>
                   </div>
                   <div class="line line4">
-                    <a href="">Bánh Sinh Nhật Bé Gái</a>
+                    <a href = "./user_product_list.html" onclick="cate()">Bánh Sinh Nhật Bé Gái</a>
                   </div>
                   <div class="line line5">
-                    <a href="">Bánh Số</a>
+                    <a href = "./user_product_list.html" onclick="cate()">Bánh Số</a>
                   </div>
                 </div>
-              </li>
-              <li class="display">
-                <a href="./user_product_list.html">BÁNH MỲ & BÁNH MẶN</a>
-                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <li class="display">
+              <a href="../HTML/user_product_detail.html">
+                <a href="./user_product_list.html" onclick="type2()">BÁNH MỲ & BÁNH MẶN</a>
                 <div class="dropdown">
                   <div class="line line1">
-                    <a href="/">Bánh Mỳ</a>
+                    <a href="./user_product_list.html" onclick="cate()">Bánh Mỳ</a>
                   </div>
                   <div class="line line2">
-                    <a href="/">Bánh Mặn</a>
+                    <a href="./user_product_list.html" onclick="cate()">Bánh Mặn</a>
                   </div>
                 </div>
-              </li>
-              <li class="display">
-                <a href="./user_product_list.html">COOCKIES & MINICAKE</a>
-                <i class="fa-solid fa-chevron-down"></i>
+              </a>
+            </li>
+            <li class="display">
+              <a href="../HTML/user_product_detail.html">
+                <a href="./user_product_list.html" onclick="type3()">COOCKIES & MINICAKE</a>
                 <div class="dropdown">
                   <div class="line line1">
-                    <a href="/">Cookies</a>
+                    <a href="./user_product_list.html">Cookies</a>
                   </div>
                   <div class="line line2">
-                    <a href="/">Mini Cake</a>
+                    <a href="./user_product_list.html">Mini Cake</a>
                   </div>
                 </div>
-              </li>
-              <li class="discount">
-                <a href="/">TIN TUC KHUYẾN MẠI</a>
-              </li>
-              <!-- <div class="block3 info"> -->
+              </a>
+            </li>
+            <li class="acc">
                 <div class="info user">
                   <span><i class="fa-solid fa-user"></i></span>
-                  <div class="name-user">
-                    <div class="login" onclick="login()"></div>
-                  </div>
                 </div>
-                <a href="./user_cart.html" class="info cart">
-                  <span><i class="fa-solid fa-bag-shopping"></i></span>
-                  <div class="total-cart">0</div>
-                </a>
-              <!-- </div> -->
-            </ul>
-          </div>
+                <div class="name-user">
+                  <div class="login" onclick="login()"></div>
+                </div>
+                <i class="fa-solid fa-right-from-bracket" onclick="logout()"></i>
+            </li>
+            <li class="cart-icon">
+              <a href="./user_cart.html" class="info cart">
+                <span><i class="fa-solid fa-bag-shopping"></i></span>
+                <div class="total-cart">0</div>
+              </a>
+            </li>
+          </ul>
+        </div>
         </div>
       </div>
     </header>
@@ -131,17 +122,26 @@
         <div class="search">
           <label for="search">Search</label>
           <input type="text" name="search" id="search">
-          <button><i class="fa-solid fa-magnifying-glass" onclick="search()"></i></button>
+          <button><i class="fa-solid fa-magnifying-glass" onclick="render()"></i></button>
+        </div>
+        <div class="filter-type">
+          <label for="filter-type">Type</label>
+          <select name="filter-type" id="filter-type" onchange="render()">
+            <option value="">All</option>
+            <option value="Bánh sinh nhật">Bánh sinh nhật</option>
+            <option value="Bánh mì & bánh mặn">Bánh mì & bánh mặn</option>
+            <option value="Cookie & mini cake">Cookie & mini cake</option>
+          </select>
         </div>
         <div class="filter-cate">
           <label for="filter-cate">Category</label>
-          <select name="filter-cate" id="filter-cate" onchange="filterCateP()">
+          <select name="filter-cate" id="filter-cate" onchange="render()">
             <!-- <option value="">All</option> -->
           </select>
         </div>
         <div class="filter-price">
           <label for="filter-price">Price</label>
-          <select name="filter-price" id="filter-price"  onchange="filterPriceP()">
+          <select name="filter-price" id="filter-price"  onchange="render()">
             <option value="az">Giá thấp => Giá cao</option>
             <option value="za">Giá cao => Giá thấp</option>
             
@@ -152,7 +152,7 @@
     <div class="grid">
 <!--  -->
     </div>
-    <div class="pagination">
+    <div class="page-control">
         <div class="page">
             <!--  -->
         </div>

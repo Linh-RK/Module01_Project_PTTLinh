@@ -4,8 +4,10 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-.container {
+body {
   background-color: rgb(237, 237, 237);
+}
+.container {
   height: 100vh;
 }
 .container .wrap {
@@ -116,6 +118,19 @@ option {
 .content .top .add-cate #updateTop {
   background-color: rgb(70, 181, 228);
 }
+.content .top .accountDisplay {
+  width: 100%;
+  text-align: right;
+}
+.content .top .accountDisplay span {
+  padding: 0 10px;
+}
+.content .top .accountDisplay button {
+  padding: 5px;
+  background-color: rgba(244, 121, 121, 0.8);
+  border: none;
+  border-radius: 3px;
+}
 /* ==================Bottom==============- */
 .content .bottom {
   border: 1px solid gray;
@@ -187,14 +202,16 @@ tr {
   padding: 5px;
 }
 /* ===================Page control================- */
-.content .page-control {
+.content .page-control .page {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
   padding: 20px;
 }
 .content .page-control .page > button {
   width: 30px;
 }
+
 /* ===================================- */
 /* ===================================- */

@@ -33,13 +33,36 @@ function totalCartProduct() {
 function userNameDisplay() {
   let userLogin = JSON.parse(window.localStorage.getItem("userLogin")) || [];
   if (userLogin == "") {
-    userName.innerHTML = `
-    <div class="login" onclick="login()"></div>
-    `;
+    login();
   } else {
     userName.innerHTML = userLogin.userName;
   }
 }
 userNameDisplay();
 // ---------------------------
-function login() {}
+function login() {
+  window.location.href = "http://127.0.0.1:5500/HTML/login.html";
+}
+// ---------------------------
+function logout() {
+  localStorage.setItem("userLogin", null);
+  window.location.href = "http://127.0.0.1:5500/HTML/login.html";
+}
+// -----------------------------
+let tempType = [];
+function type1() {
+  localStorage.setItem("tempType", []);
+  tempType = ["Bánh sinh nhật"];
+  localStorage.setItem("tempType", JSON.stringify(tempType));
+}
+function type2() {
+  localStorage.setItem("tempType", []);
+  tempType = ["Bánh mì & bánh mặn"];
+  localStorage.setItem("tempType", JSON.stringify(tempType));
+}
+function type3() {
+  localStorage.setItem("tempType", []);
+  tempType = ["Cookie & mini cake"];
+  localStorage.setItem("tempType", JSON.stringify(tempType));
+}
+// -----------------------------

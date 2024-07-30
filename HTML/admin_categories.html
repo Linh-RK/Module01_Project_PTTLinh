@@ -43,6 +43,15 @@
           <!-- ===============Content================= -->
           <div class="content">
             <div class="top">
+              <div class="accountDisplay">
+                <div class="logged">
+                  <span>Welcome back</span>
+                  <i class="fa-solid fa-user"></i>
+                  <span class="userDisplay"></span>
+                  <button onclick="logout()" >Log Out</button>
+                </div>
+                <button onclick="login()" class="un-log" style="display: none;">Log In</button>
+              </div>
               <h2 class="title">ADD NEW CATEGORY</h2>
               <div class="add-cate">
                 <div class="input">
@@ -78,7 +87,7 @@
               <div class="product-table">
                 <table>
                   <thead>
-                    <th>ID</th>
+                    <th>STT</th>
                     <th>Tên</th>
                     <th>Hành động</th>
                   </thead>
@@ -98,18 +107,20 @@
 
                 </section>
                 <section class="page-control">
-                  <button class="pre">Previous</button>
+                  <!-- <button class="pre">Previous</button> -->
                   <div class="page">
-                    <button>1</button>
+                    
                   </div>
-                  <button class="next">Next</button>
+                  <!-- <button class="next">Next</button> -->
                 </section>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <script src="../JS/admin_categories.js
-      "></script>
+      <!-- <script src="../JS/admin_categories.js"></script> -->
+      <script src="../JS/admin_category.js"></script>
+      <script src="../JS/main_adm.js"></script>
+  
   </body>
 </html>

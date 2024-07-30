@@ -1,0 +1,155 @@
+header {
+  background-color: #421a1f;
+  color: #ffffff;
+}
+
+header .site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+header .site-header .logo img {
+  width: 80px;
+  height: 80px;
+}
+header .right {
+  width: 100%;
+}
+header ul,
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+header .right .display {
+  position: relative;
+}
+header ul i {
+  font-size: 20px;
+  width: 30px;
+  margin: 0 10px;
+}
+header ul .hide {
+  width: 260px;
+  height: 200px;
+  background-color: transparent;
+}
+header ul .cart-icon a {
+  display: flex;
+  gap: 10px;
+}
+header .right .display .dropdown {
+  display: none;
+  background-color: #421a1f;
+  line-height: 1.5rem;
+  padding: 10px;
+  position: absolute;
+  margin-top: 10px;
+  width: 250px;
+}
+header .right .display:hover .dropdown {
+  display: block;
+  z-index: 1;
+  top: 20px;
+  /* left: 40px; */
+}
+header .right ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* ------------------ */
+footer .footer-background {
+  /* background-image: url(../ASSET/img/logo/logo_ft.png); */
+  object-fit: contain;
+  /* position: relative; */
+  color: #ffffff;
+  width: 100%;
+  /* height: 550px; */
+}
+footer .content {
+  background-color: rgba(0, 0, 0, 0.3);
+  /* position: absolute; */
+  padding: 50px 50px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+/* ========BLOCK========== */
+footer {
+  background-color: #421a1f;
+  color: #fdeeee;
+}
+footer .content .block {
+  display: flex;
+  flex-direction: column;
+}
+footer h4 {
+  margin-bottom: 30px;
+}
+footer a {
+  color: white;
+  line-height: 2rem;
+  text-decoration: none;
+}
+footer .content .block1 .text .line i {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+}
+/* ========== */
+footer .content .block3 .input-email {
+  margin: 30px 0;
+}
+footer .content .block3 .input-email input {
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 16px;
+  padding: 5px;
+}
+footer .content .block3 .icon i {
+  font-size: 30px;
+  margin: 0 5px;
+}
+/* ========== */
+footer .content .block4 img {
+  width: 200px;
+}
+/* ========== */
+footer .bottom {
+  background-color: #421a1f;
+  color: white;
+  padding: 0 200px;
+  line-height: 50px;
+}
+footer .bottom .icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 10px;
+}
+footer .bottom i {
+  font-size: 30px;
+}
+footer .bottom .fb {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background-color: #1075bc;
+}
+footer .bottom .ms {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #751a47;
+}

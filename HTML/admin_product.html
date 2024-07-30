@@ -53,13 +53,27 @@
         <!-- ===============Content================= -->
         <div class="content">
           <div class="top">
-            <h2>Products</h2>
-            <div class="search">
-              <input type="text" name="search" id="search-input" />
-              <!-- <input type="text" name="search" id="search-input" value="dark" /> -->
-              <button class="search-btn" onclick="search()">
-                <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="accountDisplay">
+              <div class="logged">
+                <span>Welcome back</span>
+                <i class="fa-solid fa-user"></i>
+                <span class="userDisplay"></span>
+                <button onclick="logout()">Log Out</button>
+              </div>
+              <button onclick="login()" class="un-log" style="display: none">
+                Log In
               </button>
+            </div>
+
+            <div class="search-box">
+              <h2>Products</h2>
+              <div class="search">
+                <input type="text" name="search" id="search-input" />
+                <!-- <input type="text" name="search" id="search-input" value="dark" /> -->
+                <button class="search-btn" onclick="search()">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
             </div>
           </div>
           <!-- ===============Content================= -->
@@ -214,16 +228,12 @@
                   <!--  -->
                 </tbody>
               </table>
-              <!-- ===============Content================= -->
+              <!-- ===============pagination================= -->
 
-              <div class="pagination">
-                <button><i class="fas fa-angle-left"></i></button>
-                <div class="page">
-                  <!-- <button class="pagination" id="${i}" onclick="selectPage()">
-                    1
-                  </button> -->
-                </div>
-                <button><i class="fas fa-angle-right"></i></button>
+              <div class="page-control">
+                <!-- <button><i class="fas fa-angle-left"></i></button> -->
+                <div class="page"></div>
+                <!-- <button><i class="fas fa-angle-right"></i></button> -->
               </div>
             </div>
           </div>
@@ -232,6 +242,8 @@
     </div>
 
     <script src="../JS/admin_product.js"></script>
+    <script src="../JS/main_adm.js"></script>
+
     <!-- <script src="../JS/admin_sub.js"></script> -->
   </body>
 </html>

@@ -1,14 +1,23 @@
 const cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
 const tbody = document.querySelector(".tbody");
 const tfoot = document.querySelector(".tfoot");
+const wrap = document.querySelector(".wrap");
 let qty = document.querySelector(".qty");
+
+if (cartProductList.length < 1) {
+  wrap.innerHTML = `
+  <div class= "cart_blank"><img  src="../ASSET/img/background_banner/empty-cart.webp" alt=""></div>
+  `;
+} else {
+  renderCart();
+}
 function renderCart() {
   const cartProductList =
     JSON.parse(localStorage.getItem("cartProductList")) || [];
   let sum = 0;
   for (let i = 0; i < cartProductList.length; i++) {
     tbody.innerHTML += `
-<tr class="product">
+<tr class="product" onclick = "orderDetail(cartProductList[i].id)">
     <td><button onclick="deleteProduct(${
       cartProductList[i].id
     })">Xoá</button></td>
@@ -37,7 +46,7 @@ function renderCart() {
   <td class="total"><b>${sum + ".000đ"}</b></td>
 `;
 }
-renderCart();
+
 // ------------------------
 function deleteProduct(id) {
   let cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
@@ -93,3 +102,5 @@ function checkOut() {
   // window.location.assign("http://127.0.0.1:5500/HTML/user_check_out.html");
   window.location.href = "http://127.0.0.1:5500/HTML/user_check_out.html";
 }
+// ------------------------
+function orderDetail() {}

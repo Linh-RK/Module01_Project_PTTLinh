@@ -23,8 +23,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../CSS/user_home.css" />
-    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/top_head.css" />
+    <!-- <link rel="stylesheet" href="../CSS/main.css" /> -->
     <title>Anh Hoà</title>
     <link rel="icon" type="image/x-icon" href="../ASSET/img/logo/logo.png" />
 
@@ -42,75 +42,81 @@
             <!-- ---------------- -->
         <div class="right">
           <ul>
-            <li>
-              <a href="">
+            <li class="display">
+              <a href="../HTML/user_product_detail.html">
+                <div>
+                  <a href="./user_product_list.html">BÁNH SINH NHẬT</a>
+                </div>
                 
+                <div class="dropdown">
+                  <!-- <div class="hide"></div> -->
+                  <div class="line line1">
+                    <a href="">Bánh Sinh Nhật 2024</a>
+                  </div>
+                  <div class="line line2">
+                    <a href="">Bánh Valentine - Trái Tim</a>
+                  </div>
+                  <div class="line line3">
+                    <a href="">Bánh Sinh Nhật Bé Trai</a>
+                  </div>
+                  <div class="line line4">
+                    <a href="">Bánh Sinh Nhật Bé Gái</a>
+                  </div>
+                  <div class="line line5">
+                    <a href="">Bánh Số</a>
+                  </div>
+                </div>
               </a>
             </li>
-            <li>
-              <a href=""></a>
+            <li class="display">
+              <a href="../HTML/user_product_detail.html">
+                <a href="./user_product_list.html">BÁNH MỲ & BÁNH MẶN</a>
+                <div class="dropdown">
+                  <div class="line line1">
+                    <a href="/">Bánh Mỳ</a>
+                  </div>
+                  <div class="line line2">
+                    <a href="/">Bánh Mặn</a>
+                  </div>
+                </div>
+              </a>
             </li>
-            <li>
-              <a href=""></a>
+            <li class="display">
+              <a href="../HTML/user_product_detail.html">
+                <a href="./user_product_list.html">COOCKIES & MINICAKE</a>
+                <div class="dropdown">
+                  <div class="line line1">
+                    <a href="/">Cookies</a>
+                  </div>
+                  <div class="line line2">
+                    <a href="/">Mini Cake</a>
+                  </div>
+                </div>
+              </a>
             </li>
-            <li>
-              <a href=""></a>
+            <li class="acc">
+                <div class="info user">
+                  <span><i class="fa-solid fa-user"></i></span>
+                </div>
+                <div class="name-user">
+                  <div class="login" onclick="login()"></div>
+                </div>
+                <i class="fa-solid fa-right-from-bracket" onclick="logout()"></i>
             </li>
-            <li>
-              <a href=""></a>
+            <li class="cart-icon">
+              <a href="./user_cart.html" class="info cart">
+                <span><i class="fa-solid fa-bag-shopping"></i></span>
+                <div class="total-cart">0</div>
+              </a>
             </li>
           </ul>
         </div>
         </div>
       </div>
     </header>
-    <!-- SLIDE SHOW============================= -->
-
-    <div class="slideshow-container">
-      <div class="mySlides">
-        <a href="">
-          <!-- <div class="numbertext">1 / 3</div> -->
-          <img
-            src="../ASSET/img/background_banner/mb_banner_img1.jpg.png"
-            style="width: 100%"
-          />
-          <!-- <div class="text">Caption Text</div> -->
-        </a>
-      </div>
-      <div class="mySlides">
-        <a href="">
-          <!-- <div class="numbertext">1 / 3</div> -->
-          <img
-            src="../ASSET/img/background_banner/mb_banner_img2.jpg.png"
-            style="width: 100%"
-          />
-          <!-- <div class="text">Caption Text</div> -->
-        </a>
-      </div>
-      <div class="mySlides">
-        <a href="">
-          <!-- <div class="numbertext">1 / 3</div> -->
-          <img
-            src="../ASSET/img/background_banner/mb_banner_img3.jpg.png"
-            style="width: 100%"
-          />
-          <!-- <div class="text">Caption Text</div> -->
-        </a>
-      </div>
-      <div class="mySlides">
-        <a href="">
-          <!-- <div class="numbertext">1 / 3</div> -->
-          <img
-            src="../ASSET/img/background_banner/mb_banner_img4.jpg.png"
-            style="width: 100%"
-          />
-          <!-- <div class="text">Caption Text</div> -->
-        </a>
-      </div>
-    </div>
- <!-- ===============FOOTER=============== -->
+   
         <footer>
-          <div class="footer-background">
+          
             <div class="content">
               <div class="block block1">
                 <div class="logo">
@@ -227,13 +233,13 @@
                 <i class="fa-brands fa-facebook-messenger"></i>
               </div>
             </div>
-          </div>
+         
           <!-- ==================== -->
         </footer>
       </div>
     </div>
 
-    <script src="../JS/user_home.js"></script>
+    <!-- <script src="../JS/user_home.js"></script> -->
     <script src="../JS/main.js"></script>
   </body>
 </html>

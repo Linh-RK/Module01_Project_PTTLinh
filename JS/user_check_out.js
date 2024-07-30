@@ -9,7 +9,8 @@ let district = document.querySelector("#district");
 let province = document.querySelector("#province");
 let addressDetail = document.querySelector("#address-detail");
 // ------------
-
+let orderList = JSON.parse(localStorage.getItem("orderList"));
+console.log(orderList);
 inputEmail.value = userLogin.email;
 phone.value = userLogin.phone;
 // ------------------
@@ -36,23 +37,22 @@ function render() {
   }
   total.innerHTML = `
     <div>Tổng tiền</div>
-     <div>${sum + ".000đ"}</div>
+     <div class = "total-bill">${sum + ".000đ"}</div>
 `;
 }
 render();
 // -----------------------
 function backCart() {
-  window.location.href = "http://127.0.0.1:5500/HTML/user_cart.html";
+  window.location.href = "./user_cart.html";
 }
+console.log(orderList);
 // -----------------------
 function confirmOrder() {
-  console.log(inputName.value);
-  console.log(inputEmail.value);
-  console.log(addressDetail.value);
-  console.log(payment.value);
   let cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
   let userLogin = JSON.parse(localStorage.getItem("userLogin"));
-  let orderList = JSON.parse(localStorage.getItem("oderList")) || [];
+  let orderList = JSON.parse(localStorage.getItem("orderList"));
+  let totalBill = document.querySelector(".total-bill");
+  console.log(orderList);
   if (
     inputName.value == "" ||
     inputEmail.value == "" ||
@@ -64,9 +64,10 @@ function confirmOrder() {
     let newOrder = {
       idUser: userLogin.id,
       userName: userLogin.name,
+      total: totalBill.innerHTML,
       idOrder: Math.floor(Math.random() * 1000000000),
       createDate: Date(),
-      status: 1,
+      status: "New Order",
       cartProductList: cartProductList,
       name: inputName.value,
       mail: inputEmail.value,
@@ -78,11 +79,13 @@ function confirmOrder() {
     };
 
     orderList.push(newOrder);
+    console.log(orderList);
     alert("Thanh toán thành công");
-    window.location.href = "./user_home.html";
+    window.location.href = "";
     cartProductList = [];
     localStorage.setItem("orderList", JSON.stringify(orderList));
     localStorage.setItem("cartProductList", JSON.stringify(cartProductList));
+    window.location.href = "./user_home.html";
   }
 }
 // let oderList = {
