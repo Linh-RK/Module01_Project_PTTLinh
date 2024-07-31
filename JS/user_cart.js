@@ -12,6 +12,7 @@ if (cartProductList.length < 1) {
   renderCart();
 }
 function renderCart() {
+  tbody.innerHTML = "";
   const cartProductList =
     JSON.parse(localStorage.getItem("cartProductList")) || [];
   let sum = 0;
@@ -40,7 +41,7 @@ function renderCart() {
 `;
     sum += cartProductList[i].qty * cartProductList[i].price;
   }
-  tfoot.innerHTML += `
+  tfoot.innerHTML = `
   <td><b>Tổng tiền</b></td>
   <td colspan="4"><b></b></td>
   <td class="total"><b>${sum + ".000đ"}</b></td>
@@ -58,7 +59,8 @@ function deleteProduct(id) {
   console.log(cartProductList);
   localStorage.setItem("cartProductList", JSON.stringify(cartProductList));
   console.log(cartProductList);
-  window.location.reload();
+  // window.location.reload();
+  renderCart();
 }
 // ------------------------
 function subtract(id) {
@@ -68,7 +70,8 @@ function subtract(id) {
     cartProductList[indexMinus].qty -= 1;
     localStorage.setItem("cartProductList", JSON.stringify(cartProductList));
     // qty.innerHTML = cartProductList[indexMinus].qty;
-    renderCart();
+    // renderCart();
+    // totalCartProduct();
     window.location.reload();
   }
 }
@@ -81,7 +84,8 @@ function add(id) {
   // qty.innerHTML = cartProductList[indexMinus].qty;
 
   renderCart();
-  window.location.reload();
+  totalCartProduct();
+  // window.location.reload();
 }
 // ------------------------
 function checkOut() {

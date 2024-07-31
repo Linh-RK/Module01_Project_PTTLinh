@@ -104,7 +104,9 @@ function confirmOrder() {
       userName: userLogin.name,
       total: totalBill.innerHTML,
       idOrder: Math.floor(Math.random() * 1000000000),
-      createDate: Date(),
+      createDate: ` ${new Date().getDate()} / ${
+        new Date().getMonth() + 1
+      } /${new Date().getFullYear()}`,
       status: "New Order",
       cartProductList: cartProductList,
       name: inputName.value,

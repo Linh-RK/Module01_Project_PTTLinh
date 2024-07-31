@@ -47,7 +47,6 @@ function render() {
     orderList = orderList;
   } else {
     orderList = orderList.slice(skip, skip + pageSize);
-    console.log(orderList);
   }
   // --------------------
   let stt = 1;
@@ -68,31 +67,25 @@ function render() {
             }" onclick="confirmOrder(${
       orderList[i].idOrder
     })" style ="display: ${
-      orderList[i].status == "New order" ? "block" : "none"
+      orderList[i].status == "New Order" ? "block" : "none"
     }">Ok</button>
-            <button class = "cancel-order-tn" order="${
-              orderList[i].idOrder
-            }" onclick="cancelOrder(${orderList[i].idOrder})"
-            style ="display: ${
-              orderList[i].status == "New order" ? "block" : "none"
-            }"
-            >Cancel</button>
+    <button class = "cancel-order-tn" order="${
+      orderList[i].idOrder
+    }" onclick="cancelOrder(${orderList[i].idOrder})"
+    style ="display: ${orderList[i].status == "New Order" ? "block" : "none"}"
+    >Cancel</button>
 
-            <button class = "delivery-order" order="${
-              orderList[i].idOrder
-            }" onclick="delivered(${orderList[i].idOrder})"
-            style ="display: ${
-              orderList[i].status == "Delivering" ? "block" : "none"
-            }"
-            >Delivered</button>
-            </td>
-            <td>
-            <button onclick="displayDetail(${
-              orderList[i].idOrder
-            })">Detail</button>
-            </td>
-        </tr>
-        `;
+    <button class = "delivery-order" order="${
+      orderList[i].idOrder
+    }" onclick="delivered(${orderList[i].idOrder})"
+    style ="display: ${orderList[i].status == "Delivering" ? "block" : "none"}"
+    >Delivered</button>
+    </td>
+    <td>
+    
+    </td>
+</tr>
+`;
   }
 }
 render();
@@ -117,9 +110,6 @@ function confirmOrder(idOrder) {
   confirmBtn.style.display = "none";
   cancelBtn.style.display = "none";
   deliveredBtn.style.display = "block";
-  console.log(confirmBtn);
-  console.log(cancelBtn);
-  console.log(deliveredBtn);
   let index = orderList.findIndex((e) => e.idOrder == idOrder);
   orderList[index].status = "Delivering";
   localStorage.setItem("orderList", JSON.stringify(orderList));
@@ -188,7 +178,6 @@ function activePage() {
 activePage();
 // ---------------------------
 const adminDisplay = document.getElementById("adminDisplay");
-console.log(adminDisplay);
 function userNameDisplay() {
   let adminLogin = JSON.parse(window.localStorage.getItem("adminLogin")) || [];
   if (adminLogin == "") {

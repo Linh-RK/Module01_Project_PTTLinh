@@ -79,25 +79,25 @@ function render() {
 }
 render();
 // ---------------
-function renderOther4(id) {
+function renderOther4() {
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
   let detailProduct = JSON.parse(localStorage.getItem("detailProduct"));
   let index = dbProductList.findIndex(
     (e) => e.categories == detailProduct.categories
   );
+  console.log(dbProductList);
   dbProductList = dbProductList.filter(
-    (e) => e.categories == dbProductList[index].categories
+    (e) => e.type == dbProductList[index].type
   );
+  console.log(dbProductList);
   for (let i = 0; i < 4; i++) {
     recommend.innerHTML += `
-    <div class="product" onclick = "detail(${
-               dbProductList[i].id
-             })">
+    <div class="product" onclick = "detail(${dbProductList[i].id})">
                 <div class="pic">
                   <img src="${dbProductList[i].img}" alt="" />
                 </div>
                 <div class="name">
-                  <h4>${dbProductList[i].name}</h4>
+                  <h2>${dbProductList[i].name}</h2>
                 </div>
                 <div class="price">
                   <span>${dbProductList[i].price + ".000đ"}</span>
@@ -111,13 +111,13 @@ renderOther4();
 // ----------------------------
 function add() {
   console.log(inputQty);
- inputQty.value = +inputQty.value + 1;
+  inputQty.value = +inputQty.value + 1;
 }
 //----------------
 function subtract() {
   console.log(inputQty);
   if (+inputQty.value > 1) {
-    Number(inputQty.value) -= 1;
+    inputQty.value = +inputQty.value - 1;
   } else {
     return;
   }
@@ -144,7 +144,7 @@ function addToCartDetail(id) {
 // function buyNowF(id) {
 //   console.log(Number(inputQty.value));
 //   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
-  
+
 //   let indexProduct = dbProductList.findIndex((e) => e.id == id);
 //   let buyNowProduct = {...dbProductList[indexProduct], qty: Number(inputQty.value)}
 //   localStorage.setItem("buyNow", JSON.stringify(buyNowProduct))

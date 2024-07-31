@@ -102,10 +102,9 @@ function render() {
                   <div class="price">${dbProductList[i].price + ".000đ"}</div>
                   <div class="cart">
                   <button class="add-to-cart-btn" onclick = "
-                  window.event.cancelBubble = true,
-                  addToCart(${
-                    dbProductList[i].id
-                  })"><i class="fa-solid fa-cart-plus"></i></button>
+                  window.event.cancelBubble = true;
+                  addToCart(${dbProductList[i].id})"
+                  ><i class="fa-solid fa-cart-plus"></i></button>
             </div>
             </div>
         </div>

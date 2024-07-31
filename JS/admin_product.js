@@ -17,7 +17,7 @@ const inputSearch = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const selectCategory = document.querySelector("#select-categories");
 const selectType = document.querySelector("#select-type");
-
+let idGlobal = 0;
 // ---------------------------------------------------------------------------------
 const pageControl = document.querySelector(".page");
 
@@ -126,6 +126,7 @@ function deleteProduct(id) {
 
 // CLICK ADD BUTTON IN TABLE DISPLAY FORM
 function updateProduct(id) {
+  idGlobal = id;
   form.style.display = "block";
   formTitle.innerHTML = "UPDATE PRODUCT";
   addInForm.style.display = "none";
@@ -167,14 +168,17 @@ function updateProductForm() {
   } else if (!findIndex == -1) {
     alert("Trùng tên sản phẩm");
   }
-  dbProductList[findIndex].name = inputName.value;
-  dbProductList[findIndex].img = imageProduct.src;
+  let Index = dbProductList.findIndex((cate) => cate.id == idGlobal);
+  console.log(Index);
+  console.log(dbProductList);
+  dbProductList[Index].name = inputName.value;
+  dbProductList[Index].img = imageProduct.src;
   [];
-  dbProductList[findIndex].type = selectType.value;
-  dbProductList[findIndex].categories = selectCategory.value;
-  dbProductList[findIndex].price = inputPrice.value;
-  dbProductList[findIndex].stock = +inputStock.value;
-  dbProductList[findIndex].description = inputDescription.value;
+  dbProductList[Index].type = selectType.value;
+  dbProductList[Index].categories = selectCategory.value;
+  dbProductList[Index].price = inputPrice.value;
+  dbProductList[Index].stock = +inputStock.value;
+  dbProductList[Index].description = inputDescription.value;
   window.localStorage.setItem("dbProductList", JSON.stringify(dbProductList));
   form.style.display = "none";
   formTitle.innerHTML = "CREATE NEW PRODUCT";
