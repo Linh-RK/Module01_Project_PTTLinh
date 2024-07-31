@@ -103,4 +103,4 @@ function checkOut() {
   window.location.href = "http://127.0.0.1:5500/HTML/user_check_out.html";
 }
 // ------------------------
-function orderDetail() {}
+// function orderDetail() {}

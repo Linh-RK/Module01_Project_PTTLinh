@@ -47,7 +47,7 @@
                 <div class="logged">
                   <span>Welcome back</span>
                   <i class="fa-solid fa-user"></i>
-                  <span class="userDisplay"></span>
+                  <span id="adminDisplay"></span>
                   <button onclick="logout()" >Log Out</button>
                 </div>
                 <button onclick="login()" class="un-log" style="display: none;">Log In</button>
@@ -85,7 +85,7 @@
                     <th>Total bill</th>
                     <th>Status</th>
                     <th>Control</th>
-                    <th>Detail</th>
+                    <!-- <th>Detail</th> -->
                   </thead>
                   <!-- ========== -->
                   <tbody id = "line-cate">
@@ -95,7 +95,7 @@
                 <!-- ----------- -->
                  <div>
                  <table  
-                 style="display: block;">
+                 style="display: block">
                   <thead>
                     <th>Product</th>
                     <th>Price</th>

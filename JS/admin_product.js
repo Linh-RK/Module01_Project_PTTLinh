@@ -279,7 +279,6 @@ function activePage() {
     localStorage.getItem("currentPageProduct")
   );
   let page = document.getElementsByClassName("pagination");
-  console.log(page);
   page[currentPageProduct - 1].style.backgroundColor =
     " rgba(116, 166, 41, 0.3)";
   page[currentPageProduct - 1].style.border =

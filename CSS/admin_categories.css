@@ -26,6 +26,9 @@ body {
   height: 100vh;
   width: 250px;
 }
+.bar .categories {
+  /* background-color: #eed2a8; */
+}
 .bar .logo {
   /* background-color: white; */
   text-align: center;

@@ -87,19 +87,23 @@ function render() {
   let stringHTML = "";
   for (let i = 0; i < dbProductList.length; i++) {
     stringHTML += `
-        <div class="product1">             
+        <div class="product1" onclick ="detail(${
+          dbProductList[i].id
+        })">             
               <div class="product-img">
-                  <a href=""><img src="${dbProductList[i].img}" alt="" /></a>
+                  <a ><img src="${dbProductList[i].img}" alt="" /></a>
               </div>
               <div class="product-title">
-                  <a href="">
+                  <a >
                       <h5>${dbProductList[i].name}</h5>
                   </a>
               </div>
               <div class="product-price">
                   <div class="price">${dbProductList[i].price + ".000đ"}</div>
                   <div class="cart">
-                  <button class="add-to-cart-btn" onclick = "addToCart(${
+                  <button class="add-to-cart-btn" onclick = "
+                  window.event.cancelBubble = true,
+                  addToCart(${
                     dbProductList[i].id
                   })"><i class="fa-solid fa-cart-plus"></i></button>
             </div>
@@ -144,3 +148,13 @@ function activePage() {
   page[currentPageUser - 1].style.padding = "8px 12px";
 }
 activePage();
+// --------------
+function detail(id) {
+  let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
+  let index = dbProductList.findIndex((e) => e.id == id);
+  let detailProduct = { ...dbProductList[index] };
+  // console.log(detailProduct);
+  localStorage.setItem("detailProduct", JSON.stringify(detailProduct));
+  window.location.href = "http://127.0.0.1:5500/HTML/user_product_detail.html";
+  // location.replace("http://127.0.0.1:5500/HTML/user_product_detail.html");
+}

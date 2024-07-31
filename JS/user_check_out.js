@@ -14,8 +14,16 @@ console.log(orderList);
 inputEmail.value = userLogin.email;
 phone.value = userLogin.phone;
 // ------------------
+
+// if (localStorage.getItem("buyNow")) {
+//   renderBuyNow();
+// } else {
+//   render();
+// }
+// -------------------
 function render() {
-  let cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
+  cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
+  console.log(cartProductList);
   let sum = 0;
   for (let i = 0; i < cartProductList.length; i++) {
     table.innerHTML += `
@@ -41,6 +49,36 @@ function render() {
 `;
 }
 render();
+
+// function renderBuyNow() {
+//   const buyNowProduct = localStorage.getItem("buyNow");
+//   let sum = 0;
+
+//   table.innerHTML += `
+//     <tr>
+//         <td>
+//         <img src="${buyNowProduct.img}" alt="" />
+//         </td>
+//         <td class="product">
+//         <div class="name">${buyNowProduct.name}</div>
+//         </td>
+//         <td>${buyNowProduct.qty}</td>
+//         <td>${buyNowProduct.qty * buyNowProduct.price + ".000đ"}</td>
+//     </tr>
+//     <tr>
+//         <td colspan="4"><hr /></td>
+//     </tr>
+//     `;
+
+//   total.innerHTML = `
+//     <div>Tổng tiền</div>
+//      <div class = "total-bill">${
+//        buyNowProduct.qty * buyNowProduct.price + ".000đ"
+//      }</div>
+// `;
+//   localStorage.setItem("buyNow", {});
+// }
+
 // -----------------------
 function backCart() {
   window.location.href = "./user_cart.html";
@@ -88,16 +126,3 @@ function confirmOrder() {
     window.location.href = "./user_home.html";
   }
 }
-// let oderList = {
-//   idUser: ,
-//   idOrder: ,
-//   createDate: ,
-//   status: ,
-//   cartProductList: ,
-//   total: ,
-//   name: ,
-//   mail: ,
-//   phone: ,
-//   address: ,
-//   payment: ,
-// };

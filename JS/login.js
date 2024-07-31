@@ -165,10 +165,9 @@ function signInAcc() {
           });
         } else {
           //pass-----------------
-          console.log(passwordSignIn.value);
-          console.log(passwordSignIn.value.length);
-          if (passwordSignIn.value.length < 5) {
+          if (passwordSignIn.value.length < 6) {
             alert("Password must be at least 6 character");
+            console.log(passwordSignIn.value.length);
           } else {
             //confirm pass-----------------
             if (passwordSignIn.value !== confirmPasswordSignIn.value) {
@@ -195,6 +194,7 @@ function signInAcc() {
 
               listUser.push(newUser);
               window.localStorage.setItem("listUser", JSON.stringify(listUser));
+              window.location.href = "../HTML/";
             }
           }
         }

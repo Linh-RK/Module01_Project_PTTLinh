@@ -51,6 +51,7 @@ function render() {
   }
   // --------------------
   let stt = 1;
+  lineCate.innerHTML = "";
   for (let i = 0; i < orderList.length; i++) {
     lineCate.innerHTML += `
         <tr >
@@ -64,14 +65,25 @@ function render() {
             <td >
             <button class = "confirm-order-btn" order="${
               orderList[i].idOrder
-            }" onclick="confirmOrder(${orderList[i].idOrder})">Ok</button>
+            }" onclick="confirmOrder(${
+      orderList[i].idOrder
+    })" style ="display: ${
+      orderList[i].status == "New order" ? "block" : "none"
+    }">Ok</button>
             <button class = "cancel-order-tn" order="${
               orderList[i].idOrder
-            }" onclick="cancelOrder(${orderList[i].idOrder})">Cancel</button>
+            }" onclick="cancelOrder(${orderList[i].idOrder})"
+            style ="display: ${
+              orderList[i].status == "New order" ? "block" : "none"
+            }"
+            >Cancel</button>
+
             <button class = "delivery-order" order="${
               orderList[i].idOrder
             }" onclick="delivered(${orderList[i].idOrder})"
-            style ="display: none"
+            style ="display: ${
+              orderList[i].status == "Delivering" ? "block" : "none"
+            }"
             >Delivered</button>
             </td>
             <td>
@@ -99,23 +111,26 @@ let statusOrder = document.querySelector(".status");
 const confirmBtn = document.querySelector(".confirm-order-btn");
 const cancelBtn = document.querySelector(".cancel-order-tn");
 const deliveredBtn = document.querySelector(".delivery-order");
-console.log(confirmBtn);
 
 function confirmOrder(idOrder) {
   const orderList = JSON.parse(localStorage.getItem("orderList"));
   confirmBtn.style.display = "none";
   cancelBtn.style.display = "none";
   deliveredBtn.style.display = "block";
+  console.log(confirmBtn);
+  console.log(cancelBtn);
+  console.log(deliveredBtn);
   let index = orderList.findIndex((e) => e.idOrder == idOrder);
   orderList[index].status = "Delivering";
   localStorage.setItem("orderList", JSON.stringify(orderList));
+
   render();
 }
 function cancelOrder(idOrder) {
   const orderList = JSON.parse(localStorage.getItem("orderList"));
   confirmBtn.style.display = "none";
   cancelBtn.style.display = "none";
-  deliveredBtn.style.display = "none";
+  deliveredBtn.style.display = "block";
   let index = orderList.findIndex((e) => e.idOrder == idOrder);
   orderList[index].status = "Cancel";
   localStorage.setItem("orderList", JSON.stringify(orderList));
@@ -126,7 +141,7 @@ function delivered(idOrder) {
   const orderList = JSON.parse(localStorage.getItem("orderList"));
   confirmBtn.style.display = "none";
   cancelBtn.style.display = "none";
-  deliveredBtn.style.display = "block";
+  deliveredBtn.style.display = "none";
   let index = orderList.findIndex((e) => e.idOrder == idOrder);
   orderList[index].status = "Succeeded";
   localStorage.setItem("orderList", JSON.stringify(orderList));
@@ -135,36 +150,34 @@ function delivered(idOrder) {
 }
 // ------------------------
 
-function displayDetail(idOrder) {
-  const orderList = JSON.parse(localStorage.getItem("orderList"));
-  let index = orderList.findIndex((e) => e.idOrder == idOrder);
-  let cartList = orderList[index].cartProductList;
-  detailOrder.style.display = "block";
-  for (let i = 0; i < cartList.length; i++) {
-    detailOrder.innerHTML = `
-  <tr class="product" onclick = "orderDetail(cartList[i].id)">
-        
-        <td>${cartList[i].name}</td>
-        <td>${cartList[i].price + ".000đ"}</td>
-        <td>${cartList[i].qty}</td>
-        <td>${cartList[i].qty * cartList[i].price + ".000đ"}</td>
-    </tr>
-  `;
-    totalMoney.innerHTML = `
-          <td colspan="3">Total</td>
-          <td >${orderList[index].total}</td>
-   `;
-  }
-}
+// function displayDetail(idOrder) {
+//   const orderList = JSON.parse(localStorage.getItem("orderList"));
+//   let index = orderList.findIndex((e) => e.idOrder == idOrder);
+//   let cartList = orderList[index].cartProductList;
+//   detailOrder.style.display = "block";
+//   for (let i = 0; i < cartList.length; i++) {
+//     detailOrder.innerHTML = `
+//   <tr class="product" onclick = "orderDetail(cartList[i].id)">
+
+//         <td>${cartList[i].name}</td>
+//         <td>${cartList[i].price + ".000đ"}</td>
+//         <td>${cartList[i].qty}</td>
+//         <td>${cartList[i].qty * cartList[i].price + ".000đ"}</td>
+//     </tr>
+//   `;
+//     totalMoney.innerHTML = `
+//           <td colspan="3">Total</td>
+//           <td >${orderList[index].total}</td>
+//    `;
+//   }
+// }
 
 // ------------------------
 function activePage() {
   const currentPageOrderAdm = JSON.parse(
     localStorage.getItem("currentPageOrderAdm")
   );
-  console.log(currentPageOrderAdm);
   let page = document.getElementsByClassName("pagination");
-  console.log(page);
   page[currentPageOrderAdm - 1].style.backgroundColor =
     " rgba(116, 166, 41, 0.3)";
   page[currentPageOrderAdm - 1].style.border =
@@ -173,3 +186,25 @@ function activePage() {
   page[currentPageOrderAdm - 1].style.padding = "7px";
 }
 activePage();
+// ---------------------------
+const adminDisplay = document.getElementById("adminDisplay");
+console.log(adminDisplay);
+function userNameDisplay() {
+  let adminLogin = JSON.parse(window.localStorage.getItem("adminLogin")) || [];
+  if (adminLogin == "") {
+    login();
+  } else {
+    console.log();
+    adminDisplay.innerHTML = adminLogin.userName;
+  }
+}
+userNameDisplay();
+// ---------------------------
+function login() {
+  window.location.href = "http://127.0.0.1:5500/HTML/login.html";
+}
+// ---------------------------
+function logout() {
+  localStorage.setItem("adminLogin", null);
+  window.location.href = "http://127.0.0.1:5500/HTML/login.html";
+}
