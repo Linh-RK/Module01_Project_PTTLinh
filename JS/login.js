@@ -147,9 +147,8 @@ function signInAcc() {
       } else {
         //email-----------------
         let findIndexEmail = listUser.findIndex(
-          (user) => user.email == userNameSignIn.value
+          (user) => user.email == emailSignIn.value
         );
-        console.log(findIndexEmail);
         if (findIndexEmail !== -1) {
           alert("Email đã tồn tại");
           window.addEventListener("beforeunload", (event) => {
@@ -160,7 +159,6 @@ function signInAcc() {
           //pass-----------------
           if (passwordSignIn.value.length < 6) {
             alert("Password must be at least 6 character");
-            console.log(passwordSignIn.value.length);
           } else {
             //confirm pass-----------------
             if (passwordSignIn.value !== confirmPasswordSignIn.value) {
