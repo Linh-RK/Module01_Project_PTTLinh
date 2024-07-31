@@ -111,14 +111,8 @@ const signinForm = document.querySelector(".signin");
 
 // const  = document.getElementById("")
 let format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
-// userNameSignIn.value;
-// nameSignIn.value;
-// passwordSignIn.value;
-// emailSignIn.value;
-// phoneSignIn.value;
-// console.log(emailSignIn.value);
-// -------------------------
 
+// SIGN IN-------------------------
 function signInAcc() {
   let listUser = JSON.parse(localStorage.getItem("listUser")) || [];
   console.log(passwordSignIn.value);
@@ -140,7 +134,6 @@ function signInAcc() {
         event.returnValue = "";
       });
     } else {
-      //-----------------
       let findIndexName = listUser.findIndex(
         (user) => user.userName == userNameSignIn.value
       );
@@ -208,10 +201,6 @@ function signInAcc() {
 // LOGIN------------------------------------
 function loginAcc() {
   let listUser = JSON.parse(localStorage.getItem("listUser")) || [];
-  //   const emailLogIn = document.getElementById("email-login");
-  //   const passwordLogIn = document.getElementById("password-login");
-  //   const loginBtn = document.getElementById("login");
-
   let findIndexEmail = listUser.findIndex(
     (user) => user.email == emailLogIn.value
   );
@@ -245,7 +234,7 @@ function loginAcc() {
     }
   }
 }
-// -----------
+//SWITCH LOG IN - SIGN IN -----------
 function switchSignIn() {
   loginForm.style.display = "none";
   signinForm.style.display = "block";

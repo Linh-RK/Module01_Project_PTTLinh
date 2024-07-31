@@ -19,7 +19,7 @@ JSON.parse(window.localStorage.getItem("currentPageUserAdm"));
 // --------------------
 function render() {
   let listUser = JSON.parse(localStorage.getItem("listUser"));
-  // -SEARCH-------------------
+  // SEARCH--------------------
   listUser = listUser.filter(
     (e) => e.userName.includes(inputSearch.value.trim()) == true
   );
@@ -67,11 +67,11 @@ function render() {
   tbody.innerHTML = stringHTML;
 }
 render();
-// ---------------------
+// SEARCH FUNCTION---------------------
 function search() {
   render();
 }
-// ---------------------
+// RENDER PAGE-------------------------
 function renderPage(i) {
   currentPageUserAdm = i;
   localStorage.setItem(
@@ -81,7 +81,7 @@ function renderPage(i) {
   render();
   activePage();
 }
-// ---------------------
+
 // BAN / OPEN ACC---------------------
 function switchStatus(id) {
   let listUser = JSON.parse(localStorage.getItem("listUser"));
@@ -111,7 +111,7 @@ function switchStatus(id) {
 //   logged.style.display = "block";
 //   userDisplay.innerHTML = acc.userName;
 // }
-// PAGE ACTIVE-----------------------
+// PAGE ACTIVE-------------------------------
 function activePage() {
   const currentPageUserAdm = JSON.parse(
     localStorage.getItem("currentPageUserAdm")
@@ -127,7 +127,7 @@ function activePage() {
   page[currentPageUserAdm - 1].style.padding = "7px";
 }
 activePage();
-// -----------------
+// DISPLAY USERNAME IS LOGGING-----------------
 const adminDisplay = document.getElementById("adminDisplay");
 console.log(adminDisplay);
 function userNameDisplay() {
@@ -140,7 +140,7 @@ function userNameDisplay() {
   }
 }
 userNameDisplay();
-// ---------------------------
+// LOG IN - LOG OUT---------------------------
 function login() {
   window.location.href = "http://127.0.0.1:5500/HTML/login.html";
 }

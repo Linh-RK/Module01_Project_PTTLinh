@@ -8,7 +8,7 @@ const recommend = document.querySelector(".recommend-products-list");
 const addCart = document.querySelector(".add-cart-btn");
 const buyNow = document.querySelector(".buy-now");
 
-// ---------------
+// RENDER---------------
 
 function render() {
   let detailProduct = JSON.parse(localStorage.getItem("detailProduct"));

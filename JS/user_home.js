@@ -29,7 +29,7 @@ const grid3 = document.querySelector(".grid3");
 const product = document.querySelector(".product1");
 let cate;
 const typeList = JSON.parse(localStorage.getItem("typeList"));
-// --------------------
+// RENDER TYPE 1--------------------
 function render1(type) {
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
 
@@ -67,6 +67,7 @@ function render1(type) {
   }
 }
 render1(typeList[0]);
+// RENDER TYPE 2--------------------
 function render2(type) {
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
 
@@ -100,7 +101,7 @@ function render2(type) {
   }
 }
 render2(typeList[1]);
-// -----------------------
+// RENDER TYPE 3--------------------
 function render3(type) {
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
 
@@ -151,7 +152,7 @@ render3(typeList[2]);
 //     console.log(cartProductList);
 //   }
 // }
-// ------------------------------------
+// DISPLAY DETAIL PRODUCT------------------------------------
 function detail(id) {
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
   let index = dbProductList.findIndex((e) => e.id == id);
@@ -161,7 +162,7 @@ function detail(id) {
   // window.location.href = "http://127.0.0.1:5500/HTML/user_product_detail.html";
   location.replace("http://127.0.0.1:5500/HTML/user_product_detail.html");
 }
-// // ------------------------------------
+// ADD TO CART ------------------------------------
 function addToCart(id) {
   // console.log("sadfdasfdsafadfdasf", );
   // el.stopPropagation();

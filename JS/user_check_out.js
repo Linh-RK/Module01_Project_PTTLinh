@@ -20,7 +20,7 @@ phone.value = userLogin.phone;
 // } else {
 //   render();
 // }
-// -------------------
+// RENDER PRODUCT WANT TO BUY-------------------
 function render() {
   cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
   console.log(cartProductList);
@@ -79,12 +79,12 @@ render();
 //   localStorage.setItem("buyNow", {});
 // }
 
-// -----------------------
+// COME BACK TO CART-----------------------
 function backCart() {
   window.location.href = "./user_cart.html";
 }
 console.log(orderList);
-// -----------------------
+// CONFIRM ORDER-----------------------
 function confirmOrder() {
   let cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
   let userLogin = JSON.parse(localStorage.getItem("userLogin"));

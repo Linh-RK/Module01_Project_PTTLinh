@@ -181,7 +181,7 @@ function deleteCate(id) {
   localStorage.setItem("categoriesList1", JSON.stringify(categoriesList1));
   render();
 }
-// ----------------------------------------------
+// CSS FOR CURRENT PAGE----------------------------------------------
 function activePage() {
   const currentPageCategoryAdm = JSON.parse(
     localStorage.getItem("currentPageCategoryAdm")
@@ -196,7 +196,7 @@ function activePage() {
   page[currentPageCategoryAdm - 1].style.padding = "6px";
 }
 activePage();
-// ---------------
+// DISPLAY USERNAME LOGGING---------------
 const adminDisplay = document.getElementById("adminDisplay");
 console.log(adminDisplay);
 function userNameDisplay() {
@@ -209,7 +209,7 @@ function userNameDisplay() {
   }
 }
 userNameDisplay();
-// ---------------------------
+// LOG IN - LOG OUT---------------------------
 function login() {
   window.location.href = "http://127.0.0.1:5500/HTML/login.html";
 }

@@ -95,7 +95,7 @@ function render() {
   tbodyProduct.innerHTML = stringHTML;
 }
 render();
-// ---------------------------------------
+// RENDER PRODUCT IN EACH PAGE---------------------------------------
 function renderProductPage(i) {
   currentPageProduct = i;
   localStorage.setItem(
@@ -105,7 +105,7 @@ function renderProductPage(i) {
   render();
   activePage();
 }
-// search===============
+// SEARCH------------------------------------------
 function search() {
   render();
 }
@@ -113,7 +113,7 @@ function search() {
 cancelInForm.addEventListener("click", function () {
   form.style.display = "none";
 });
-// 5_DELETE==============
+// DELETE PRODUCT----------------------------------
 function deleteProduct(id) {
   const dbProductList =
     JSON.parse(window.localStorage.getItem("dbProductList")) || [];
@@ -122,9 +122,9 @@ function deleteProduct(id) {
   window.localStorage.setItem("dbProductList", JSON.stringify(dbProductList));
   render();
 }
-// // 6. UPDATE============
+// //UPDATE PRODUCT--------------------------------
 
-// CLICK ADD BUTTON IN TABLE DISPLAY FORM
+// CLICK ADD BUTTON IN TABLE DISPLAY FORM------------------------------
 function updateProduct(id) {
   idGlobal = id;
   form.style.display = "block";
@@ -146,7 +146,7 @@ function updateProduct(id) {
   inputStock.value = +dbProductList[findIndex].stock;
   inputDescription.value = dbProductList[findIndex].description;
 }
-// AFTER UPDATE INPUT VALUE IN FORM,
+// AFTER UPDATE INPUT VALUE IN FORM,------------------------------
 // CLICK UPDATE BUTTON TO UPDATE
 function updateProductForm() {
   // check input value is blank or not
@@ -189,7 +189,7 @@ function updateProductForm() {
   );
   renderProductPage(currentPageProduct);
 }
-// ADD NEW-------------------------------------------------
+//-------------------------------------------------
 let url;
 let pic = document.getElementById("image-product");
 inputImage.addEventListener("change", (e) => {
@@ -202,7 +202,7 @@ inputImage.addEventListener("change", (e) => {
   };
   reader.readAsDataURL(file);
 });
-// -------------------------------------------------
+// ADD PRODUCT-------------------------------------------------
 function addProduct() {
   form.style.display = "block";
   selectCateDisplay();
@@ -253,7 +253,7 @@ function addProductForm() {
   form.style.display = "none";
   render();
 }
-// selectCate in form------------------------------------
+// SELECT CATEGORY IN FORM------------------------------------
 function selectCateDisplay() {
   let categoriesList = JSON.parse(localStorage.getItem("categoriesList"));
   console.log(categoriesList);
@@ -265,7 +265,7 @@ function selectCateDisplay() {
   }
   selectCategory.innerHTML = stringHTML;
 }
-// select type in form----------------------
+// SELECT TYPE IN FORM----------------------
 function selectTypeDisplay() {
   let typeList = JSON.parse(localStorage.getItem("typeList"));
   console.log(typeList);
@@ -277,7 +277,7 @@ function selectTypeDisplay() {
   }
   selectType.innerHTML = stringHTML;
 }
-// PAGE ACTIVE-----------------------
+// PAGE ACTIVE-----------------------------
 function activePage() {
   const currentPageProduct = JSON.parse(
     localStorage.getItem("currentPageProduct")

@@ -11,6 +11,7 @@ if (cartProductList.length < 1) {
 } else {
   renderCart();
 }
+// RENDER PRODUCT IN CART------------------------
 function renderCart() {
   tbody.innerHTML = "";
   const cartProductList =
@@ -48,7 +49,7 @@ function renderCart() {
 `;
 }
 
-// ------------------------
+// DELETE PRODUCT IN CART------------------------
 function deleteProduct(id) {
   let cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
   //
@@ -62,7 +63,7 @@ function deleteProduct(id) {
   // window.location.reload();
   renderCart();
 }
-// ------------------------
+// SUBTRACT QTY OF EACH PRODUCT IN CART------------------------
 function subtract(id) {
   let cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
   let indexMinus = cartProductList.findIndex((el) => el.id == id);
@@ -75,7 +76,7 @@ function subtract(id) {
     window.location.reload();
   }
 }
-// ------------------------
+// ADD QTY OF EACH PRODUCT IN CART------------------------
 function add(id) {
   let cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
   let indexPlus = cartProductList.findIndex((el) => el.id == id);
@@ -87,7 +88,7 @@ function add(id) {
   totalCartProduct();
   // window.location.reload();
 }
-// ------------------------
+// TO CHECK OUT------------------------
 function checkOut() {
   // let cartProductList = JSON.parse(localStorage.getItem("cartProductList"));
 

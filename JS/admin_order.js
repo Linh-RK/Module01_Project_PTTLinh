@@ -7,6 +7,10 @@ const searchBtn = document.querySelector("search-btn");
 const sort = document.querySelector("#sort");
 const pageControl = document.querySelector(".page-control");
 const page = document.querySelector(".page");
+let statusOrder = document.querySelector(".status");
+const confirmBtn = document.querySelector(".confirm-order-btn");
+const cancelBtn = document.querySelector(".cancel-order-tn");
+const deliveredBtn = document.querySelector(".delivery-order");
 // console.log(tfoot);
 let totalPage = 1;
 let pageSize = 5;
@@ -48,7 +52,7 @@ function render() {
   } else {
     orderList = orderList.slice(skip, skip + pageSize);
   }
-  // --------------------
+  // RENDER--------------------
   let stt = 1;
   lineCate.innerHTML = "";
   for (let i = 0; i < orderList.length; i++) {
@@ -89,7 +93,7 @@ function render() {
   }
 }
 render();
-// ------------------------
+// RENDER PAGE------------------------
 function renderPage(i) {
   currentPageOrderAdm = i;
   localStorage.setItem(
@@ -99,12 +103,7 @@ function renderPage(i) {
   render();
   activePage();
 }
-// -------------------------
-let statusOrder = document.querySelector(".status");
-const confirmBtn = document.querySelector(".confirm-order-btn");
-const cancelBtn = document.querySelector(".cancel-order-tn");
-const deliveredBtn = document.querySelector(".delivery-order");
-
+// CONFIRM ORDER-------------------------
 function confirmOrder(idOrder) {
   const orderList = JSON.parse(localStorage.getItem("orderList"));
   confirmBtn.style.display = "none";
@@ -116,6 +115,7 @@ function confirmOrder(idOrder) {
 
   render();
 }
+// CANCEL ORDER-------------------------
 function cancelOrder(idOrder) {
   const orderList = JSON.parse(localStorage.getItem("orderList"));
   confirmBtn.style.display = "none";
@@ -127,6 +127,7 @@ function cancelOrder(idOrder) {
   window.location.reload();
   render();
 }
+// CHANGE STATUS TO DELIVERING ORDER-------------------------
 function delivered(idOrder) {
   const orderList = JSON.parse(localStorage.getItem("orderList"));
   confirmBtn.style.display = "none";
@@ -162,7 +163,7 @@ function delivered(idOrder) {
 //   }
 // }
 
-// ------------------------
+// CSS CURRENT PAGE------------------------
 function activePage() {
   const currentPageOrderAdm = JSON.parse(
     localStorage.getItem("currentPageOrderAdm")
@@ -176,7 +177,7 @@ function activePage() {
   page[currentPageOrderAdm - 1].style.padding = "7px";
 }
 activePage();
-// ---------------------------
+// DISPLAY USERNAME IS LOGGING---------------------------
 const adminDisplay = document.getElementById("adminDisplay");
 function userNameDisplay() {
   let adminLogin = JSON.parse(window.localStorage.getItem("adminLogin")) || [];
@@ -188,7 +189,7 @@ function userNameDisplay() {
   }
 }
 userNameDisplay();
-// ---------------------------
+// LOG IN - LOG OUT---------------------------
 function login() {
   window.location.href = "http://127.0.0.1:5500/HTML/login.html";
 }

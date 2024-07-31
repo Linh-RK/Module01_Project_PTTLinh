@@ -1,5 +1,6 @@
 let product = document.querySelector(".product");
 let subtractBtn, addBtn, inputQty, recommend, addCart, buyNow;
+// RENDER------------------------------
 function render() {
   let detailProduct = JSON.parse(localStorage.getItem("detailProduct"));
   product.innerHTML += `
@@ -78,7 +79,7 @@ function render() {
   // ---------------
 }
 render();
-// ---------------
+// RENDER RECOMMEND PRODUCT---------------
 function renderOther4() {
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
   let detailProduct = JSON.parse(localStorage.getItem("detailProduct"));
@@ -108,12 +109,12 @@ function renderOther4() {
   }
 }
 renderOther4();
-// ----------------------------
+// ADD BTN----------------------------
 function add() {
   console.log(inputQty);
   inputQty.value = +inputQty.value + 1;
 }
-//----------------
+// SUBTRACT BTN----------------
 function subtract() {
   console.log(inputQty);
   if (+inputQty.value > 1) {
@@ -122,7 +123,7 @@ function subtract() {
     return;
   }
 }
-//----------------
+//ADD TO CART DETAIL----------------
 function addToCartDetail(id) {
   console.log(Number(inputQty.value));
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));

@@ -2,7 +2,7 @@ const addToCartBtn = document.querySelector("add-to-cart-btn");
 const totalCart = document.querySelector(".total-cart");
 const userName = document.querySelector(".name-user");
 
-// ------------
+// ADD PRODUCT INTO CART------------
 totalCart.innerHTML = totalCartProduct();
 function addToCart(id) {
   let dbProductList =
@@ -21,7 +21,7 @@ function addToCart(id) {
   }
   totalCart.innerHTML = totalCartProduct();
 }
-// ------------------------
+// DISPLAY PRODUCT QUALITY IN CART------------------------
 function totalCartProduct() {
   let cartProductList =
     JSON.parse(window.localStorage.getItem("cartProductList")) || [];
@@ -29,7 +29,7 @@ function totalCartProduct() {
   let sum = cartProductList.reduce((pre, current) => pre + current.qty, 0);
   return sum;
 }
-// ------------------------
+//  DISPLAY USERNAME IS LOGGING------------------------
 function userNameDisplay() {
   let userLogin = JSON.parse(window.localStorage.getItem("userLogin")) || [];
   if (userLogin == "") {
@@ -39,7 +39,7 @@ function userNameDisplay() {
   }
 }
 userNameDisplay();
-// ---------------------------
+// LOG IN - LOG OUT---------------------------
 function login() {
   window.location.href = "http://127.0.0.1:5500/HTML/login.html";
 }
@@ -48,7 +48,7 @@ function logout() {
   localStorage.setItem("userLogin", null);
   window.location.href = "http://127.0.0.1:5500/HTML/login.html";
 }
-// -----------------------------
+// CHANGE LOCATION-----------------------------
 let tempType = [];
 function type1() {
   localStorage.setItem("tempType", []);

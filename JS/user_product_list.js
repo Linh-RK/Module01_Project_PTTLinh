@@ -13,7 +13,7 @@ let totalPage = 1;
 let pageSize = 8;
 let currentPageUser = 1;
 localStorage.setItem("currentPageUser", JSON.stringify(currentPageUser));
-// -----------------------------
+// RENDER CATEGORY-----------------------------
 function renderCate() {
   let categoriesList =
     JSON.parse(window.localStorage.getItem("categoriesList")) || [];
@@ -29,7 +29,7 @@ function renderCate() {
 renderCate();
 // -----------------------------
 
-// -----------------------------
+// RENDER-----------------------------
 function render() {
   let dbProductList =
     JSON.parse(window.localStorage.getItem("dbProductList")) || [];
@@ -120,7 +120,7 @@ function renderProductPageUser(i) {
   render();
   activePage();
 }
-// ----------------
+// ADD TO CART----------------
 function addToCart(id) {
   let dbProductList = JSON.parse(localStorage.getItem("dbProductList"));
   let cartProductList =
